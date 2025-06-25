@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar nuevo coche</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .form-control, .form-control-sm {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            border: 1px solid #444;
+        }
+        .form-control::placeholder {
+            color: #888;
+        }
+        label {
+            color: #e0e0e0;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            color: #e0e0e0;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="container py-3">
+
+    <h1 class="mb-4 text-center">Registrar nuevo coche</h1>
+
+   <form method="POST" enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+        <label for="bastidor" class="form-label">Bastidor (rellénalo manualmente o sube una foto para OCR)</label>
+        <input type="text" name="bastidor" id="bastidor" class="form-control" placeholder="Introduce el bastidor" >
+    </div>
+    <div class="mb-3">
+        <label for="foto_bastidor" class="form-label">Foto bastidor para OCR</label>
+        <input type="file" name="foto_bastidor" id="foto_bastidor" class="form-control" accept="image/*">
+    </div>
+    <div class="mb-3">
+        <label for="plaza" class="form-label">Plaza</label>
+        <input type="text" name="plaza" id="plaza" class="form-control" placeholder="Introduce la plaza" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="/" class="btn btn-secondary ms-2">Volver</a>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

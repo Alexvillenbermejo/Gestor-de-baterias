@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+            background-color: #121212;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+</style>
+<body class="container mt-4">
+    <h1>Historial de {{ coche.bastidor }} - Plaza {{ coche.plaza }}</h1>
+    <ul class="list-group">
+        {% for comp in comprobaciones %}
+        <li class="list-group-item">
+            Fecha: {{ comp.fecha }}
+            {% if comp.foto %}
+                - <a href="/static/uploads/{{ comp.foto }}" target="_blank">Ver foto</a>
+            {% endif %}
+        </li>
+        {% else %}
+        <li class="list-group-item">Sin comprobaciones aún.</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('editar_coche', coche_id=coche.id) }}" class="btn btn-outline-warning btn-sm">Editar coche</a>
+
+    <a href="/" class="btn btn-secondary mt-3">Volver</a>
+    <form action="{{ url_for('borrar_coche', coche_id=coche.id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de borrar este coche y todo su historial?');">
+    <button type="submit" class="btn btn-danger mt-3">Borrar coche completo</button>
+</form>
+</body>
+</html>
